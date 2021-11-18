@@ -8,6 +8,8 @@ Naming for this resource is as follows, based on published RBA naming convention
 
     <rba.customer>-<rba.resourceGroupType>-<rba.productName>-<rba.environment>-<rba.azureRegion>
 
+This module are bases on repository (https://github.com/Azure-Terraform/terraform-azurerm-resource-group)
+
 <!--- BEGIN_TF_DOCS --->
 ## Providers
 
