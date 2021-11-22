@@ -1,19 +1,19 @@
 output "id" {
   description = "Resource group id"
-  value       = azurerm_resource_group.rg.id
+  value       = var.resource_group_exists ? data.azurerm_resource_group.rg[0].id : azurerm_resource_group.rg[0].id
 }
 
 output "location" {
   description = "Resource group location"
-  value = azurerm_resource_group.rg.location
+  value       = var.resource_group_exists ? data.azurerm_resource_group.rg[0].location : azurerm_resource_group.rg[0].location
 }
 
 output "name" {
   description = "Resource group name"
-  value = azurerm_resource_group.rg.name
+  value       = var.resource_group_exists ? data.azurerm_resource_group.rg[0].name : azurerm_resource_group.rg[0].name
 }
 
 output "rg" {
   description = "Resource group resource"
-  value       = azurerm_resource_group.rg
+  value       = var.resource_group_exists ? data.azurerm_resource_group.rg[0] : azurerm_resource_group.rg[0]
 }

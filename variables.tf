@@ -14,6 +14,12 @@ variable "unique_name" {
   default     = false
 }
 
+variable "resource_group_exists" {
+  description = "If true, the resource group name will not be created, but imported (data)"
+  type        = bool
+  default     = false
+}
+
 variable "names" {
   description = "Names to be applied to resources (inclusive)"
   type = object({

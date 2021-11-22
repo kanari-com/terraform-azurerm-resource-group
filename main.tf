@@ -10,7 +10,13 @@ resource "random_integer" "suffix" {
 }
 
 resource "azurerm_resource_group" "rg" {
+  count    = var.resource_group_exists ? 0 : 1
   name     = var.unique_name ? "${local.resource_group_name}-${random_integer.suffix[0].result}" : local.resource_group_name
   location = var.location
   tags     = var.tags
+}
+
+data "azurerm_resource_group" "rg" {
+  count = var.resource_group_exists ? 1 : 0
+  name  = var.unique_name ? "${local.resource_group_name}-${random_integer.suffix[0].result}" : local.resource_group_name
 }
