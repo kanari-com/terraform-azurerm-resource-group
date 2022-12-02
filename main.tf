@@ -14,6 +14,12 @@ resource "azurerm_resource_group" "rg" {
   name     = var.unique_name ? "${local.resource_group_name}-${random_integer.suffix[0].result}" : local.resource_group_name
   location = var.location
   tags     = var.tags
+
+  lifecycle {
+    ignore_changes = [ 
+      tags
+     ]
+  }
 }
 
 data "azurerm_resource_group" "rg" {
